@@ -108,7 +108,7 @@ function App() {
     <>
       <div>
         <h1>Pokedex</h1>
-        <button onClick={toggleTheme}>
+        <button onClick={toggleTheme} className='buttonTheme'>
         Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
       </button>
         <div className="cardContainer">
