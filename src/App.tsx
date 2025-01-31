@@ -50,14 +50,23 @@ function ProfilPokemon({ pokemon }: { pokemon: Pokemon }) {
 };
 
 
+
+
 function App() {
 
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark');
-
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
 
   useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark';
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
     document.body.className = theme === 'light' ? 'light-mode' : 'dark-mode';
   }, [theme]);
 
