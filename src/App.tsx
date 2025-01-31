@@ -56,6 +56,23 @@ function App() {
 
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
   const [pokemon, setPokemon] = useState<Pokemon | null>(null);
+  const [theme, setTheme] = useState<'light' | 'dark'>('light');
+
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark';
+    if (savedTheme) {
+      setTheme(savedTheme);
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem('theme', theme);
+    document.body.className = theme === 'light' ? 'light-mode' : 'dark-mode';
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
+  };
 
 
     
@@ -91,6 +108,9 @@ function App() {
     <>
       <div>
         <h1>Pokedex</h1>
+        <button onClick={toggleTheme}>
+        Switch to {theme === 'light' ? 'Dark' : 'Light'} Mode
+      </button>
         <div className="cardContainer">
           {pokemonList.map((p) => (
             <CardPokemon key={p.id} pokemon={p} onClick={() => setPokemon(p)} />

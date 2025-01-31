@@ -1,3 +1,19 @@
+/* .light-mode {
+  --background-color: #fff;
+  --text-color: #000;
+  --card-background: #f5f5f5;
+  --card-text-color: #333;
+}
+
+.dark-mode {
+  --background-color: #121212;
+  --text-color: #fff;
+  --card-background: #333;
+  --card-text-color: #ccc;
+}
+
+
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -98,6 +114,97 @@ img{
 }
 
 .profilPokemon img{
+  width: 300px;
+  height: 300px;
+} */
+
+
+
+.light-mode {
+  --background-color: #fff;
+  --text-color: #000;
+  --card-background: #fff;
+  --card-border-color: #333;
+}
+
+.dark-mode {
+  --background-color: #121212;
+  --text-color: #fff;
+  --card-background: #2c2c2c;
+  --card-border-color: #444;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+
+.card {
+  padding: 2.5em;
+  background-color: var(--card-background);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 1rem;
+}
+
+.profilPokemon {
+  border: 2px solid var(--card-border-color);
+  border-radius: 10px;
+  background-color: var(--card-background);
+  padding: 20px;
+  margin-top: 20px;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.listStats {
+  list-style-type: none;
+  padding: 0;
+}
+
+.cardPokemon {
+  cursor: pointer;
+  border: 1px solid var(--card-border-color);
+  padding: 15px;  
+  margin: 10px;  
+  background-color: var(--card-background);  
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.cardPokemon:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+img {
+  width: 200px;
+  height: 200px;
+}
+
+.profilPokemon img {
   width: 300px;
   height: 300px;
 }
