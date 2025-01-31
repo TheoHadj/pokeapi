@@ -50,8 +50,6 @@ function ProfilPokemon({ pokemon }: { pokemon: Pokemon }) {
 };
 
 
-
-
 function App() {
 
   const [pokemonList, setPokemonList] = useState<Pokemon[]>([]);
